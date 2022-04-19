@@ -1,5 +1,12 @@
+import {
+  RadioGroup,
+  Radio,
+  CheckboxGroup,
+  Checkbox,
+  Textarea,
+} from "@mantine/core";
 import "./App.css";
-// https://mantine.dev/core/checkbox/
+
 function App() {
   return (
     <div className="App">
@@ -17,12 +24,17 @@ function App() {
             functional problems, describe this/these below. (List the symptoms
             in descending order with the mose troublesome first)
           </p>
-          <textarea name="" id="" cols="100" rows="3"></textarea>
+          <Textarea name="" id="" cols="100" rows="3"></Textarea>
           <div className="questions-section">
             <div className="question">
               <p>Have you been diagnosed with this problem?</p>
               <div className="question-right">
-                <input
+                <RadioGroup required>
+                  <Radio value="Not relevant" label="Not relevant" />
+                  <Radio value="Yes" label="Yes" />
+                  <Radio value="No" label="No" />
+                </RadioGroup>
+                {/* <input
                   type="radio"
                   name="question-one"
                   id="question-one-1"
@@ -42,14 +54,19 @@ function App() {
                   id="question-one-3"
                   value="No"
                 />
-                <label for="question-one-3">No</label>
+                <label for="question-one-3">No</label> */}
               </div>
             </div>
             {/*  */}
             <div className="question">
               <p>Did the problem start after a physical trauma?</p>
               <div className="question-right">
-                <input
+                <RadioGroup required>
+                  <Radio value="Not relevant" label="Not relevant" />
+                  <Radio value="Yes" label="Yes" />
+                  <Radio value="No" label="No" />
+                </RadioGroup>
+                {/* <input
                   type="radio"
                   name="question-two"
                   id="question-two-1"
@@ -69,14 +86,19 @@ function App() {
                   id="question-two-3"
                   value="No"
                 />
-                <label for="question-two-3">No</label>
+                <label for="question-two-3">No</label> */}
               </div>
             </div>
             {/*  */}
             <div className="question">
               <p>Did the problem start after a mental trauma?</p>
               <div className="question-right">
-                <input
+                <RadioGroup required>
+                  <Radio value="Not relevant" label="Not relevant" />
+                  <Radio value="Yes" label="Yes" />
+                  <Radio value="No" label="No" />
+                </RadioGroup>
+                {/* <input
                   type="radio"
                   name="question-three"
                   id="question-three-1"
@@ -96,14 +118,24 @@ function App() {
                   id="question-three-3"
                   value="No"
                 />
-                <label for="question-three-3">No</label>
+                <label for="question-three-3">No</label> */}
               </div>
             </div>
             {/*  */}
             <div className="question flex-reverse align-items-flex-start">
               <p>How often do you experience the problem?</p>
               <div className="q-4-options">
-                <div className="input-group">
+                <RadioGroup required>
+                  <Radio value="Not relevant" label="Not relevant" />
+                  <Radio value="Daily" label="Daily" />
+                  <Radio
+                    value="Several times/week"
+                    label="Several times/week"
+                  />
+                  <Radio value="A few times/month" label="A few times/month" />
+                  <Radio value="A few times/year" label="A few times/year" />
+                </RadioGroup>
+                {/* <div className="input-group">
                   <input
                     type="radio"
                     name="question-four"
@@ -147,14 +179,28 @@ function App() {
                     value="A few times/year"
                   />
                   <label for="question-four-5">A few times/year</label>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="question flex-reverse align-items-flex-start">
               <p>When do you experience the problem??</p>
               <div className="five">
                 <div className="five-left">
-                  <div className="input-group">
+                  <CheckboxGroup
+                    required
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <Checkbox value="Not relevant" label="Not relevant" />
+                    <Checkbox value="When lying down" label="When lying down" />
+                    <Checkbox value="When sitting" label="When sitting" />
+                    <Checkbox value="Under standing" label="Under standing" />
+                    <Checkbox value="In walking" label="In walking" />
+                  </CheckboxGroup>
+                  {/* <div className="input-group">
                     <input
                       type="checkbox"
                       name="question-five"
@@ -198,10 +244,10 @@ function App() {
                       value="In walking"
                     />
                     <label for="question-five-5">In walking</label>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="five-right">
-                  <textarea
+                  <Textarea
                     type="text"
                     placeholder="Other? For example in rotations, side bends, wing stairs, when working with the arms above the head."
                   />
@@ -214,6 +260,23 @@ function App() {
                 0-10 scale?
               </p>
               <div className="six-options">
+                <RadioGroup required>
+                  {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+                    <Radio key={item} value={item} label={item} />
+                  ))} */}
+
+                  <Radio value="1" label="1" />
+                  <Radio value="2" label="2" />
+                  <Radio value="3" label="3" />
+                  <Radio value="4" label="4" />
+                  <Radio value="5" label="5" />
+                  <Radio value="6" label="6" />
+                  <Radio value="7" label="7" />
+                  <Radio value="8" label="8" />
+                  <Radio value="9" label="9" />
+                  <Radio value="10" label="10" />
+                </RadioGroup>
+                {/* 
                 <div className="input-group-horizontal">
                   <label for="question-six-1">1</label>
                   <input
@@ -304,6 +367,7 @@ function App() {
                     value="10"
                   />
                 </div>
+                 */}
               </div>
             </div>
           </div>
