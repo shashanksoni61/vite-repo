@@ -88,7 +88,7 @@
 }
 .fixed-plus {
   position: absolute;
-  top: -18px;
+  top: -13px;
   left: 50%;
 }
 .plus-btn {
@@ -100,9 +100,10 @@
   padding-top: 1px;
   position: relative;
 }
-.plus-btn span {
+
+.plus-button-span {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
