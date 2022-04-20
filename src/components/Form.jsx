@@ -9,21 +9,8 @@ import {
 } from "@mantine/core";
 import { AppContext } from "../context/AppContext";
 
-const Form = ({ pushDataToSummary }) => {
+const Form = () => {
   const { summaryData, setSummaryData } = useContext(AppContext);
-  const [formValues, setFormValues] = useState({
-    p1: "",
-    p2: "",
-    p3: "",
-    p4: "",
-    p5: "",
-    p6: {
-      options: [],
-      probDetail: "",
-    },
-    p7: "",
-  });
-
   const [forms, setForms] = useState(
     summaryData.length > 0
       ? summaryData
@@ -79,33 +66,6 @@ const Form = ({ pushDataToSummary }) => {
     setForms([...forms, formObj]);
   };
 
-  console.log(forms);
-
-  const { p1, p2, p3, p4, p5, p6, p7 } = formValues;
-  const { options, probDetail } = p6;
-
-  // const submitData = () => {
-  //   if (!p2 || !p3 || !p4 || !p5 || options.length === 0 || !p7) {
-  //     console.log("fill all values");
-  //     return;
-  //   }
-
-  //   setSummaryData((prev) => [...prev, formValues]);
-  //   setFormValues((prev) => ({
-  //     ...prev,
-  //     p1: "",
-  //     p2: "",
-  //     p3: "",
-  //     p4: "",
-  //     p5: "",
-  //     p6: {
-  //       options: [],
-  //       probDetail: "",
-  //     },
-  //     p7: "",
-  //   }));
-  // };
-
   return (
     <>
       <div className="form-div">
@@ -117,17 +77,7 @@ const Form = ({ pushDataToSummary }) => {
           </p>
           {forms.map((item, index) => (
             <div key={index}>
-              <Textarea
-                disabled
-                name=""
-                id=""
-                cols="100"
-                rows="3"
-                value={p1}
-                onChange={(e) =>
-                  setFormValues((prev) => ({ ...prev, p1: e.target.value }))
-                }
-              ></Textarea>
+              <Textarea disabled name="" id="" cols="100" rows="3"></Textarea>
               <div className="questions-section">
                 <div className="question">
                   <p>Have you been diagnosed with this problem?</p>
@@ -137,7 +87,6 @@ const Form = ({ pushDataToSummary }) => {
                       value={item.p2}
                       onChange={(e) => {
                         handleFormChange(e, "p2", index);
-                        setFormValues((prev) => ({ ...prev, p2: e }));
                       }}
                     >
                       <Radio value="Not relevant" label="Not relevant" />
@@ -155,7 +104,6 @@ const Form = ({ pushDataToSummary }) => {
                       value={item.p3}
                       onChange={(e) => {
                         handleFormChange(e, "p3", index);
-                        setFormValues((prev) => ({ ...prev, p3: e }));
                       }}
                     >
                       <Radio value="Not relevant" label="Not relevant" />
@@ -173,7 +121,6 @@ const Form = ({ pushDataToSummary }) => {
                       value={item.p4}
                       onChange={(e) => {
                         handleFormChange(e, "p4", index);
-                        setFormValues((prev) => ({ ...prev, p4: e }));
                       }}
                     >
                       <Radio value="Not relevant" label="Not relevant" />
@@ -191,7 +138,6 @@ const Form = ({ pushDataToSummary }) => {
                       value={item.p5}
                       onChange={(e) => {
                         handleFormChange(e, "p5", index);
-                        setFormValues((prev) => ({ ...prev, p5: e }));
                       }}
                     >
                       <Radio value="Not relevant" label="Not relevant" />
@@ -228,13 +174,6 @@ const Form = ({ pushDataToSummary }) => {
                             "checkbox",
                             "options"
                           );
-                          setFormValues((prev) => ({
-                            ...prev,
-                            p6: {
-                              ...prev.p6,
-                              options: [...e],
-                            },
-                          }));
                         }}
                       >
                         <Checkbox value="Not relevant" label="Not relevant" />
@@ -261,13 +200,6 @@ const Form = ({ pushDataToSummary }) => {
                             "checkbox",
                             "probDetail"
                           );
-                          setFormValues((prev) => ({
-                            ...prev,
-                            p6: {
-                              ...prev.p6,
-                              probDetail: e.target.value,
-                            },
-                          }));
                         }}
                         type="text"
                         placeholder="Other? For example in rotations, side bends, wing stairs, when working with the arms above the head."
@@ -286,10 +218,6 @@ const Form = ({ pushDataToSummary }) => {
                       value={item.p7}
                       onChange={(e) => {
                         handleFormChange(e, "p7", index);
-                        setFormValues((prev) => ({
-                          ...prev,
-                          p7: e,
-                        }));
                       }}
                     >
                       {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
